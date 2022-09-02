@@ -25,19 +25,19 @@ public class HotelReservation {
         int ratesWeekendRegularCustomer = sc.nextInt();
         hotelPojo.setRateWeekendRegularCustomer(ratesWeekendRegularCustomer);
 
+        System.out.println("Enter ratings:");
+        int ratings = sc.nextInt();
+        hotelPojo.setRatings(ratings);
+
         hotelPojoList.add(hotelPojo);
 
     }
 
     public void cheapestHotelByDate() {
 
-//        int cheapHotelPrice[] = new int[hotelPojoList.size()];
-//        List<Integer> cheapHotelPriceList = new ArrayList<>();
         Map<HotelPojo,Integer> cheapHotelPriceMap = new HashMap<>();
-//        int sameHotelPrices[];
         List<Integer> hotelIndex = new ArrayList<>();
         DateRangeCalculate dateRangeCalculate = new DateRangeCalculate();
-//        int i=0;
 
         System.out.println("Enter From Date:");
         String fromDate = sc.next();
@@ -55,8 +55,6 @@ public class HotelReservation {
 
                 int numberOfWeekdays = daysDifferenceWithWeekend[0]-daysDifferenceWithWeekend[1];
 
-//                cheapHotelPrice[i] = hotelElement.getRateWeekdayRegularCustomer()*numberOfWeekdays + hotelElement.getRateWeekendRegularCustomer()*daysDifferenceWithWeekend[1];
-//                  cheapHotelPriceList.add(hotelElement.getRateWeekdayRegularCustomer()*numberOfWeekdays + hotelElement.getRateWeekendRegularCustomer()*daysDifferenceWithWeekend[1]);
                 int totalHotelPrice =  hotelElement.getRateWeekdayRegularCustomer()*numberOfWeekdays + hotelElement.getRateWeekendRegularCustomer()*daysDifferenceWithWeekend[1];
                 cheapHotelPriceMap.put(hotelElement,totalHotelPrice);
                 
@@ -78,8 +76,6 @@ public class HotelReservation {
 
         for (Map.Entry<HotelPojo, Integer> cheapHotelMapElement : sortedCheapHotelMap.entrySet()){
 
-//            Integer cheapestPrice = cheapHotelMapElement.getValue();
-
             if(cheapestPrice == cheapHotelMapElement.getValue()){
 
                 System.out.println("*******************************************************************************");
@@ -92,8 +88,7 @@ public class HotelReservation {
             }
 
         }
-//         List<int[]> cheapHotelPriceList = Arrays.asList(cheapHotelPrice).stream().sorted().collect(Collectors.toList());
-//        cheapHotelPriceList.stream().sorted();
+
     }
 
 

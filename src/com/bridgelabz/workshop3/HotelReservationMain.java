@@ -46,6 +46,6 @@ public class HotelReservationMain {
                     System.out.println("Exiting Menu...");
             }
 
-        }while (choice >= 1 || choice <=3);
+        }while (choice >= 1 && choice <=3);
     }
 }

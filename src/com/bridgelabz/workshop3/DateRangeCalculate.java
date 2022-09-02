@@ -12,7 +12,6 @@ public class DateRangeCalculate {
     public int[] calculateDateDifferenceInDays(String fromDate, String toDate) {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMMyyyy");
-//        int daysDifferenceWithWeekend[];
         try{
 
             Date dateBefore = dateFormat.parse(fromDate);
@@ -54,18 +53,6 @@ public class DateRangeCalculate {
         }
 
 
-//        for(int j=fromDay ; j<=(additionalDays-fromDay);j++){
-//
-//            if(weekDays[j].equals("Sat")){
-//                saturdayCounter++;
-//            }
-//
-//            if(weekDays[j].equals("Sun")){
-//                sundayCounter++;
-//            }
-//
-//        }
-
         int[] additionalDaysArray = new int[additionalDays];
         int i=0;
 
@@ -91,7 +78,6 @@ public class DateRangeCalculate {
         }
 
         int numberOfWeekends = saturdayCounter + sundayCounter;
-//        int numberOfWeekdays = daysBetween - numberOfWeekends;
 
         daysDifferenceWithWeekend[0] = daysBetween;
         daysDifferenceWithWeekend[1] = numberOfWeekends;

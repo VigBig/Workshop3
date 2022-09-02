@@ -4,7 +4,7 @@ public class HotelPojo {
     private String name;
     private int rateWeekdayRegularCustomer;
     private int rateWeekendRegularCustomer;
-    private double ratings;
+    private int ratings;
 
     public String getName() {
         return name;
@@ -30,11 +30,11 @@ public class HotelPojo {
         this.rateWeekendRegularCustomer = rateWeekendRegularCustomer;
     }
 
-    public double getRatings() {
+    public int getRatings() {
         return ratings;
     }
 
-    public void setRatings(double ratings) {
+    public void setRatings(int ratings) {
         this.ratings = ratings;
     }
 
