@@ -33,7 +33,7 @@ public class HotelReservation {
 
     }
 
-    public void cheapestHotelByDate() {
+    public LinkedHashMap<HotelPojo, Integer> cheapestHotelPriceByDate() {
 
         Map<HotelPojo,Integer> cheapHotelPriceMap = new HashMap<>();
         List<Integer> hotelIndex = new ArrayList<>();
@@ -61,38 +61,36 @@ public class HotelReservation {
             }
 
         }
-        LinkedHashMap<HotelPojo, Integer> sortedCheapHotelMap = new LinkedHashMap<>();
+        LinkedHashMap<HotelPojo, Integer> sortedCheapHotelByPriceMap = new LinkedHashMap<>();
 
         cheapHotelPriceMap.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue())
-                .forEachOrdered(x -> sortedCheapHotelMap.put(x.getKey(), x.getValue()));
+                .forEachOrdered(x -> sortedCheapHotelByPriceMap.put(x.getKey(), x.getValue()));
 
-        System.out.println("Map sorted by hotel prices   : " + sortedCheapHotelMap);
+        System.out.println("Map sorted by hotel prices   : " + sortedCheapHotelByPriceMap);
 
-        int cheapestPrice = sortedCheapHotelMap.values().stream().findFirst().orElse(0);
 
-        System.out.println("Cheapest Hotel Price from options based on Date Range: "+fromDate+" - "+toDate+" is "+ cheapestPrice+"$");
-
-        for (Map.Entry<HotelPojo, Integer> cheapHotelMapElement : sortedCheapHotelMap.entrySet()){
-
-            if(cheapestPrice == cheapHotelMapElement.getValue()){
-
-                System.out.println("*******************************************************************************");
-                System.out.println(cheapHotelMapElement.getKey().getName() + "\n"
-                        +"has weekday rates of :"+cheapHotelMapElement.getKey().getRateWeekdayRegularCustomer() +"\n"
-                        +"and weekend rates of :"+cheapHotelMapElement.getKey().getRateWeekendRegularCustomer() +"\n");
-
-                System.out.println("*******************************************************************************");
-
-//                System.out.println("Key: "+cheapHotelMapElement.getKey());
-//                System.out.println("Value:"+cheapHotelMapElement.getValue());
-
-            }
-
+        return sortedCheapHotelByPriceMap;
         }
 
+    public LinkedHashMap<HotelPojo, Integer> cheapestBestHotelPriceByDate(LinkedHashMap<HotelPojo, Integer> sortedCheapHotelByPriceMap) {
+
+        LinkedHashMap<HotelPojo, Integer> sortedBestCheapHotelByPriceMap = new LinkedHashMap<>();
+
+
+          sortedCheapHotelByPriceMap.entrySet().stream().sorted((keyRating1,keyRating2)->
+
+                  Integer.toString(keyRating1.getKey().getRatings())
+                          .compareToIgnoreCase(Integer.toString(keyRating2.getKey().getRatings()))
+
+          ).forEachOrdered(x -> sortedBestCheapHotelByPriceMap.put(x.getKey(), x.getValue()));
+
+
+        return sortedBestCheapHotelByPriceMap;
+
     }
-
-
 }
+
+
+
