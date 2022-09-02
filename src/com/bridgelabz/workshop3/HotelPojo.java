@@ -1,7 +1,6 @@
 package com.bridgelabz.workshop3;
 
 public class HotelPojo {
-
     private String name;
     private double rateRegularCustomer;
     private double ratings;
