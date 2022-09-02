@@ -9,7 +9,8 @@ public class HotelReservationMain {
     public static void main(String[] args) {
         System.out.println("Welcome to Hotel Reservation System :");
         int choice;
-        int cheapestPrice;
+        int cheapestPrice = 0;
+        int cheapestPriceHighestRating = 0;
 
         HotelReservation hotelReservation = new HotelReservation();
         do{
@@ -18,7 +19,8 @@ public class HotelReservationMain {
             System.out.println("1. Add Hotel Details");
             System.out.println("2. Cheapest Hotel based on Date");
             System.out.println("3. Cheapest Best Rated Hotel based on Date");
-            System.out.println("4. View All Hotel Details");
+            System.out.println("4. Best Rated Hotel based on Date");
+            System.out.println("5. View All Hotel Details");
             choice = sc.nextInt();
 
             switch(choice){
@@ -63,7 +65,7 @@ public class HotelReservationMain {
                     LinkedHashMap<HotelPojo, Integer> sortedBestCheapHotelByPriceMap = hotelReservation.cheapestBestHotelPriceByDate(hotelReservation.cheapestHotelPriceByDate());
 
                     cheapestPrice = sortedBestCheapHotelByPriceMap.values().stream().findFirst().orElse(0);
-                    int cheapestPriceHighestRating = sortedBestCheapHotelByPriceMap.keySet().stream().findFirst().get().getRatings();
+                    cheapestPriceHighestRating = sortedBestCheapHotelByPriceMap.keySet().stream().findFirst().get().getRatings();
 
                     System.out.println("Cheapest Best Rated Hotel Price from options based on Date Range is "+ cheapestPrice+"$");
 
@@ -96,6 +98,36 @@ public class HotelReservationMain {
                     break;
 
                 case 4:
+                    sortedCheapHotelByPriceMap = hotelReservation.cheapestHotelPriceByDate();
+
+                    for (Map.Entry<HotelPojo, Integer> cheapHotelMapElement : sortedCheapHotelByPriceMap.entrySet()) {
+
+                        if( cheapestPriceHighestRating < cheapHotelMapElement.getKey().getRatings()){
+
+                            cheapestPriceHighestRating = cheapHotelMapElement.getKey().getRatings();
+                            cheapestPrice = cheapHotelMapElement.getValue();
+
+                        }
+                    }
+
+                    System.out.println("Best Rated Hotel from options based on Date Range is "+ cheapestPrice+"$");
+                    for (Map.Entry<HotelPojo, Integer> cheapHotelMapElement : sortedCheapHotelByPriceMap.entrySet()) {
+
+                        if( cheapestPriceHighestRating == cheapHotelMapElement.getKey().getRatings() ){
+
+                            System.out.println("*******************************************************************************");
+                            System.out.println(cheapHotelMapElement.getKey().getName() + "\n"
+                                    + "has weekday rates of :" + cheapHotelMapElement.getKey().getRateWeekdayRegularCustomer() + "\n"
+                                    + "and weekend rates of :" + cheapHotelMapElement.getKey().getRateWeekendRegularCustomer() + "\n"
+                                    + "and rating of :" + cheapHotelMapElement.getKey().getRatings() + "\n");
+                            System.out.println("*******************************************************************************");
+
+                        }
+                    }
+
+                    break;
+
+                case 5:
 
                     System.out.println("Printing All Hotel Details:");
                     for (HotelPojo hotelElement: hotelReservation.hotelPojoList) {

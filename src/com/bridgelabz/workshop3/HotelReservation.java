@@ -33,10 +33,8 @@ public class HotelReservation {
 
     }
 
-    public LinkedHashMap<HotelPojo, Integer> cheapestHotelPriceByDate() {
+    public int[] enterDateDetails(){
 
-        Map<HotelPojo,Integer> cheapHotelPriceMap = new HashMap<>();
-        List<Integer> hotelIndex = new ArrayList<>();
         DateRangeCalculate dateRangeCalculate = new DateRangeCalculate();
 
         System.out.println("Enter From Date:");
@@ -46,6 +44,25 @@ public class HotelReservation {
         String toDate = sc.next();
 
         int daysDifferenceWithWeekend[] = dateRangeCalculate.calculateDateDifferenceInDays(fromDate,toDate);
+
+        return daysDifferenceWithWeekend;
+    }
+
+    public LinkedHashMap<HotelPojo, Integer> cheapestHotelPriceByDate() {
+
+        Map<HotelPojo,Integer> cheapHotelPriceMap = new HashMap<>();
+        List<Integer> hotelIndex = new ArrayList<>();
+//        DateRangeCalculate dateRangeCalculate = new DateRangeCalculate();
+//
+//        System.out.println("Enter From Date:");
+//        String fromDate = sc.next();
+//
+//        System.out.println("Enter To Date:");
+//        String toDate = sc.next();
+//
+//        int daysDifferenceWithWeekend[] = dateRangeCalculate.calculateDateDifferenceInDays(fromDate,toDate);
+
+        int daysDifferenceWithWeekend[] = enterDateDetails();
 
         if(daysDifferenceWithWeekend == null){
             System.out.println("Error in calculating date Difference...");
@@ -90,6 +107,7 @@ public class HotelReservation {
         return sortedBestCheapHotelByPriceMap;
 
     }
+
 }
 
 
