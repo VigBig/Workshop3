@@ -70,7 +70,7 @@ public class HotelReservation {
 
         System.out.println("Map sorted by hotel prices   : " + sortedCheapHotelMap);
 
-        Integer cheapestPrice = sortedCheapHotelMap.values().stream().findFirst().orElse(0);
+        int cheapestPrice = sortedCheapHotelMap.values().stream().findFirst().orElse(0);
 
         System.out.println("Cheapest Hotel Price from options based on Date Range: "+fromDate+" - "+toDate+" is "+ cheapestPrice+"$");
 
@@ -84,6 +84,9 @@ public class HotelReservation {
                         +"and weekend rates of :"+cheapHotelMapElement.getKey().getRateWeekendRegularCustomer() +"\n");
 
                 System.out.println("*******************************************************************************");
+
+//                System.out.println("Key: "+cheapHotelMapElement.getKey());
+//                System.out.println("Value:"+cheapHotelMapElement.getValue());
 
             }
 
