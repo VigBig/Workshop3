@@ -5,14 +5,6 @@ public class HotelPojo {
     private double rateRegularCustomer;
     private double ratings;
 
-    public double getRate() {
-        return rateRegularCustomer;
-    }
-
-    public void setRate(double rateRegularCustomer) {
-        this.rateRegularCustomer = rateRegularCustomer;
-    }
-
     public String getName() {
         return name;
     }
@@ -21,6 +13,13 @@ public class HotelPojo {
         this.name = name;
     }
 
+    public double getRateRegularCustomer() {
+        return rateRegularCustomer;
+    }
+
+    public void setRateRegularCustomer(double rateRegularCustomer) {
+        this.rateRegularCustomer = rateRegularCustomer;
+    }
 
     public double getRatings() {
         return ratings;
