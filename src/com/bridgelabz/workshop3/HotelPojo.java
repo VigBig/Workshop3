@@ -3,15 +3,15 @@ package com.bridgelabz.workshop3;
 public class HotelPojo {
 
     private String name;
-    private double rate;
+    private double rateRegularCustomer;
     private double ratings;
 
     public double getRate() {
-        return rate;
+        return rateRegularCustomer;
     }
 
-    public void setRate(double rate) {
-        this.rate = rate;
+    public void setRate(double rateRegularCustomer) {
+        this.rateRegularCustomer = rateRegularCustomer;
     }
 
     public String getName() {
@@ -35,7 +35,7 @@ public class HotelPojo {
     public String toString() {
         return "HotelPojo{" +
                 "name='" + name + '\'' +
-                ", rate=" + rate +
+                ", rate=" + rateRegularCustomer +
                 ", ratings=" + ratings +
                 '}';
     }
