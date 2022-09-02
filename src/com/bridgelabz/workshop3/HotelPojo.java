@@ -2,8 +2,8 @@ package com.bridgelabz.workshop3;
 
 public class HotelPojo {
     private String name;
-    private double rateWeekdayRegularCustomer;
-    private double rateWeekendRegularCustomer;
+    private int rateWeekdayRegularCustomer;
+    private int rateWeekendRegularCustomer;
     private double ratings;
 
     public String getName() {
@@ -14,19 +14,19 @@ public class HotelPojo {
         this.name = name;
     }
 
-    public double getRateWeekdayRegularCustomer() {
+    public int getRateWeekdayRegularCustomer() {
         return rateWeekdayRegularCustomer;
     }
 
-    public void setRateWeekdayRegularCustomer(double rateWeekdayRegularCustomer) {
+    public void setRateWeekdayRegularCustomer(int rateWeekdayRegularCustomer) {
         this.rateWeekdayRegularCustomer = rateWeekdayRegularCustomer;
     }
 
-    public double getRateWeekendRegularCustomer() {
+    public int getRateWeekendRegularCustomer() {
         return rateWeekendRegularCustomer;
     }
 
-    public void setRateWeekendRegularCustomer(double rateWeekendRegularCustomer) {
+    public void setRateWeekendRegularCustomer(int rateWeekendRegularCustomer) {
         this.rateWeekendRegularCustomer = rateWeekendRegularCustomer;
     }
 

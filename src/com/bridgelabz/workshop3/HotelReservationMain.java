@@ -13,7 +13,8 @@ public class HotelReservationMain {
 
             System.out.println("Select options provided in the menu below. Entering anything else will exit the menu :");
             System.out.println("1. Add Hotel Details");
-            System.out.println("2. View All Hotel Details");
+            System.out.println("2. Cheapest Hotel based on Date");
+            System.out.println("3. View All Hotel Details");
             choice = sc.nextInt();
 
             switch(choice){
@@ -28,7 +29,12 @@ public class HotelReservationMain {
 
                     }
                     break;
+
                 case 2:
+                    hotelReservation.cheapestHotelByDate();
+                    break;
+
+                case 3:
                     System.out.println("Printing All Hotel Details:");
                     for (HotelPojo hotelElement: hotelReservation.hotelPojoList) {
 
@@ -40,6 +46,6 @@ public class HotelReservationMain {
                     System.out.println("Exiting Menu...");
             }
 
-        }while (choice == 1 || choice ==2);
+        }while (choice >= 1 || choice <=3);
     }
 }
