@@ -25,6 +25,14 @@ public class HotelReservation {
         int ratesWeekendRegularCustomer = sc.nextInt();
         hotelPojo.setRateWeekendRegularCustomer(ratesWeekendRegularCustomer);
 
+        System.out.println("Enter weekday rates for rewards customer:");
+        int ratesWeekdayRewardsCustomer = sc.nextInt();
+        hotelPojo.setRateWeekdayRewardsCustomer(ratesWeekdayRewardsCustomer);
+
+        System.out.println("Enter weekend rates for rewards customer:");
+        int ratesWeekendRewardsCustomer = sc.nextInt();
+        hotelPojo.setRateWeekendRewardsCustomer(ratesWeekendRewardsCustomer);
+
         System.out.println("Enter ratings:");
         int ratings = sc.nextInt();
         hotelPojo.setRatings(ratings);
@@ -52,15 +60,7 @@ public class HotelReservation {
 
         Map<HotelPojo,Integer> cheapHotelPriceMap = new HashMap<>();
         List<Integer> hotelIndex = new ArrayList<>();
-//        DateRangeCalculate dateRangeCalculate = new DateRangeCalculate();
-//
-//        System.out.println("Enter From Date:");
-//        String fromDate = sc.next();
-//
-//        System.out.println("Enter To Date:");
-//        String toDate = sc.next();
-//
-//        int daysDifferenceWithWeekend[] = dateRangeCalculate.calculateDateDifferenceInDays(fromDate,toDate);
+
 
         int daysDifferenceWithWeekend[] = enterDateDetails();
 

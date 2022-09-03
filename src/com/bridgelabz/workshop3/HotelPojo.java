@@ -4,6 +4,8 @@ public class HotelPojo {
     private String name;
     private int rateWeekdayRegularCustomer;
     private int rateWeekendRegularCustomer;
+    private int rateWeekdayRewardsCustomer;
+    private int rateWeekendRewardsCustomer;
     private int ratings;
 
     public String getName() {
@@ -30,6 +32,22 @@ public class HotelPojo {
         this.rateWeekendRegularCustomer = rateWeekendRegularCustomer;
     }
 
+    public int getRateWeekdayRewardsCustomer() {
+        return rateWeekdayRewardsCustomer;
+    }
+
+    public void setRateWeekdayRewardsCustomer(int rateWeekdayRewardsCustomer) {
+        this.rateWeekdayRewardsCustomer = rateWeekdayRewardsCustomer;
+    }
+
+    public int getRateWeekendRewardsCustomer() {
+        return rateWeekendRewardsCustomer;
+    }
+
+    public void setRateWeekendRewardsCustomer(int rateWeekendRewardsCustomer) {
+        this.rateWeekendRewardsCustomer = rateWeekendRewardsCustomer;
+    }
+
     public int getRatings() {
         return ratings;
     }
@@ -44,6 +62,8 @@ public class HotelPojo {
                 "name='" + name + '\'' +
                 ", rateWeekdayRegularCustomer=" + rateWeekdayRegularCustomer +
                 ", rateWeekendRegularCustomer=" + rateWeekendRegularCustomer +
+                ", rateWeekdayRewardsCustomer=" + rateWeekdayRewardsCustomer +
+                ", rateWeekendRewardsCustomer=" + rateWeekendRewardsCustomer +
                 ", ratings=" + ratings +
                 '}';
     }
